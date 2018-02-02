@@ -17,7 +17,7 @@
 //   of the game in minutes and seconds.
 // 	 GameTime will never go below 00:00 and higher than 20:00 
 	
-class GameTime { //<-- I want to make this immutable - how?
+class GameTime { 
 	//minutes: range from 0 to 20
 	int minutes;
 	//seconds: range from 0 to 59
@@ -55,7 +55,7 @@ class Player {
 	std::string jersey_number; 
 
 	public:
-		Player(std::string jersey_number) : ice_time(GameTime(0,0)), jersey_number(jersey_number) {} //<-- How to initialize at zero?
+		Player(std::string jersey_number) : ice_time(GameTime(0,0)), jersey_number(jersey_number) {} 
 		Player(std::string jersey_number, GameTime ice_time) : ice_time(ice_time), jersey_number(jersey_number) {}
 		
 		//Getters:
@@ -190,7 +190,7 @@ Player Player::add_time(GameTime amount) {
 
 //overide cin (>>) - to read numbers as players
 std::istream &operator>>(std::istream &is, Player &p) {
-        is >> p.jersey_number; //<-- not sure this method should go here? mayber in .cpp area?
+        is >> p.jersey_number; 
         return is;
     }
 
@@ -204,7 +204,7 @@ std::ostream &operator<<(std::ostream &os, const Player &p)
 
 //Getters:
 GameTime Player::get_ice_time() {
-	return this->ice_time; //<-- maybe make a copy of this and return that???? figure out how it's used first
+	return this->ice_time; 
 }
 std::string Player::get_jersey_number() {
 	return this->jersey_number;
